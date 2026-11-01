@@ -1,0 +1,29 @@
+name: preview-release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish preview APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            tag="v0.1.0-preview.1"
+          fi
+          gh release create "$tag" release/*.apk \
+            --title "DSH Mobile $tag" \
+            --notes "DSH Mobile 预览版。仅支持 Android 15 及以上、arm64 设备。" \
+            --prerelease \
+            --verify-tag || true
