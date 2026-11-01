@@ -55,3 +55,6 @@ app.*.map.json
 
 # 本地编辑器 / AI 配置
 /.qoder/
+
+# 本地 UI 探测文件
+ui*.xml

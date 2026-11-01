@@ -35,7 +35,7 @@ https://github.com/axin455/dsh-plugin-mobile-link
 
 1. 在电脑端安装并启用 dsh-plugin-mobile-link，在 DSH 左下角“移动设备”生成二维码。
 
-2. 在手机端安装 Release 里的 arm64 APK，或者按下面的构建步骤自行编译。
+2. 在手机端安装 release/DSH-Mobile-0.1.0-preview-arm64.apk，或者按下面的构建步骤自行编译。
 
 3. 打开 App，点“扫一扫连接电脑”，扫描二维码。
 
